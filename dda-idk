@@ -1,0 +1,106 @@
+getgenv().autofarm = false;
+getgenv().swing = false;
+getgenv().autolevel = false;
+
+local UILibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/twink"))()
+
+local MainUI = UILibrary.Load("Stormzzys Script / Egg Farm Sim")
+local FirstPage = MainUI.AddPage("Farm")
+local SecPage = MainUI.AddPage("Teleports")
+local ThrdPage = MainUI.AddPage("Player")
+
+local gotodealer = SecPage.AddButton("Goto Dealer", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Dealer.HumanoidRootPart.CFrame
+end)
+
+local gotohire = SecPage.AddButton("Goto Hire", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-8, 8, 1)
+end)
+
+local autolevel = FirstPage.AddToggle("auto level", false, function(bool)
+getgenv().autolevel = bool
+
+spawn(function()
+ while autolevel == true do
+local ohString1 = "å›žå°ä½ä½å¦»å›žå¹³å¦»è¦æŠ„ã‹ä½ãƒ‹ãŒå¹³ã‚‚å°ãƒãƒå›žãƒæŠ„æ¿€ã¦ã‚‚"
+local ohString2 = "Next Level"
+
+game:GetService("ReplicatedStorage").Events.Progress:FireServer(ohString1, ohString2)
+ 		wait()
+ 	 end
+ end)
+end)
+
+local autoswing = FirstPage.AddToggle("auto swing", false, function(bool)
+getgenv().swing = bool
+
+spawn(function()
+ while swing == true do
+ 		local ohString1 = "self"
+local ohString2 = "219629d5067eddcdce55ed7968e9b53f"
+
+game:GetService("ReplicatedStorage").Events.Weapon:FireServer(ohString1, ohString2)
+
+ 		wait()
+ 	 end
+ end)
+end)
+
+local autofarm = FirstPage.AddToggle("Auto Farm Chicken", false, function(bool)
+-- [[-234, 8, 135]]
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-217, 8, 125)
+game.Players.LocalPlayer.Character.Humanoid.WalkToPoint = Vector3.new(-235, 8, 136)
+
+getgenv().autofarm = bool
+
+spawn(function()
+ while autofarm == true do
+ 		local ohString1 = "self"
+local ohString2 = "219629d5067eddcdce55ed7968e9b53f"
+
+game:GetService("ReplicatedStorage").Events.Weapon:FireServer(ohString1, ohString2)
+
+ 		wait()
+ 	 end
+ end)
+end)
+
+local ws = ThrdPage.AddSlider("WS/WalkSpeed", {Min = 0, Max = 100, Def = 16}, function(Value)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+end)
+
+local setws = ThrdPage.AddButton("Reset WS", function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end)
+
+local jp = ThrdPage.AddSlider("JP/JumpPower", {Min = 0, Max = 100, Def = 50}, function(Value)
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+end)
+
+local setjp = ThrdPage.AddButton("Reset JP", function()
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+end)
+
+local gotofarm = SecPage.AddButton("goto farm1", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-216, 14, 125)
+end)
+
+local gotofarm = SecPage.AddButton("goto farm2", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-217, 15, -126)
+end)
+
+local gotofarm = SecPage.AddButton("goto farm3", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 14, -246)
+end)
+
+local gotofarm = SecPage.AddButton("goto farm4", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(208, 14, -120)
+end)
+
+local gotofarm = SecPage.AddButton("goto farm5", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(212, 15, 122)
+end)
+
+local gotofarm = SecPage.AddButton("goto farm6", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2, 15, 249)
+end)
